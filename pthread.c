@@ -26,6 +26,15 @@ int main(){
     data2.threadNo = 2;
     strcpy(data2.message,"Hello, I am Thread 2");
     
+    //create thread1 and thread 2
+    pthread_create(&thread1,NULL,(void*) &printMessage,(void *)&data1);
+    pthread_create(&thread2,NULL,(void*) &printMessage,(void *)&data2);
+    
+    //main program will wait for both threads to terminate before it exists
+    pthread_join(thread1, NULL);
+    pthread_join(thread2,NULL);
+
+    
     exit(0);
 }
 
