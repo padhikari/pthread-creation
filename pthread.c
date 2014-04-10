@@ -18,6 +18,14 @@ int main(){
     pthread_t thread1,thread2;
     thdata data1,data2;
     
+    //initialize data to pass to thread1
+    data1.threadNo = 1;
+    strcpy(data1.message,"Hello, I am Thread 1");
+    
+    //initialize data to pass to thread2
+    data2.threadNo = 2;
+    strcpy(data2.message,"Hello, I am Thread 2");
+    
     exit(0);
 }
 
