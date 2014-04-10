@@ -33,12 +33,13 @@ int main(){
     //main program will wait for both threads to terminate before it exists
     pthread_join(thread1, NULL);
     pthread_join(thread2,NULL);
-
     
     exit(0);
 }
 
 void printMessage(void *ptr){
-    
+    thdata *data;
+    data=(thdata *)ptr; //type cast pointer to thdata
+    printf("Thread %d says %s\n", data->threadNo,data->message);
     pthread_exit(0);
 }
