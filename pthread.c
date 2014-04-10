@@ -3,6 +3,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<pthread.h>
+#include<string.h>
 
 //function declaration for thread routine
 void printMessage(void *ptr);
@@ -14,7 +15,13 @@ typedef struct threadData{
 }thdata;
 
 int main(){
+    pthread_t thread1,thread2;
+    thdata data1,data2;
     
-    return 0;
+    exit(0);
+}
+
+void printMessage(void *ptr){
     
+    pthread_exit(0);
 }
