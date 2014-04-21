@@ -1,3 +1,4 @@
 pthread_LDADD = -lpthread
-bin_PROGRAMS= pthread
+bin_PROGRAMS= pthread thread1
 pthread_SOURCES=pthread.c
+thread1_SOURCES=thread1.c
