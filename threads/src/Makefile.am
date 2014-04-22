@@ -1,5 +1,13 @@
 pthread_LDADD = -lpthread
-bin_PROGRAMS= pthread thread1 thread2 thread3 thread3a thread4 thread5 thread6 thread7
+thread1_LDADD = -lpthread
+thread2_LDADD = -lpthread
+thread3_LDADD = -lpthread
+thread3a_LDADD = -lpthread
+thread4_LDADD = -lpthread
+thread5_LDADD = -lpthread
+thread6_LDADD = -lpthread
+thread7_LDADD = -lpthread
+bin_PROGRAMS= pthread thread1 thread2 thread3 thread3a thread4 thread5 thread6 thread7 
 pthread_SOURCES=pthread.c
 thread1_SOURCES=thread1.c
 thread2_SOURCES=thread2.c
@@ -9,5 +17,3 @@ thread4_SOURCES=thread4.c
 thread5_SOURCES=thread5.c
 thread6_SOURCES=thread6.c
 thread7_SOURCES=thread7.c
-
-
