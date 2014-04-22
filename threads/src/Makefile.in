@@ -34,7 +34,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 bin_PROGRAMS = pthread$(EXEEXT) thread1$(EXEEXT) thread2$(EXEEXT) \
 	thread3$(EXEEXT) thread3a$(EXEEXT) thread4$(EXEEXT) \
-	thread5$(EXEEXT) thread6$(EXEEXT) thread7$(EXEEXT)
+	thread5$(EXEEXT) thread6$(EXEEXT) thread7$(EXEEXT) \
+	thread8$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -74,6 +75,9 @@ thread6_DEPENDENCIES =
 am_thread7_OBJECTS = thread7.$(OBJEXT)
 thread7_OBJECTS = $(am_thread7_OBJECTS)
 thread7_DEPENDENCIES =
+am_thread8_OBJECTS = thread8.$(OBJEXT)
+thread8_OBJECTS = $(am_thread8_OBJECTS)
+thread8_DEPENDENCIES =
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -84,11 +88,12 @@ CCLD = $(CC)
 LINK = $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
 SOURCES = $(pthread_SOURCES) $(thread1_SOURCES) $(thread2_SOURCES) \
 	$(thread3_SOURCES) $(thread3a_SOURCES) $(thread4_SOURCES) \
-	$(thread5_SOURCES) $(thread6_SOURCES) $(thread7_SOURCES)
+	$(thread5_SOURCES) $(thread6_SOURCES) $(thread7_SOURCES) \
+	$(thread8_SOURCES)
 DIST_SOURCES = $(pthread_SOURCES) $(thread1_SOURCES) \
 	$(thread2_SOURCES) $(thread3_SOURCES) $(thread3a_SOURCES) \
 	$(thread4_SOURCES) $(thread5_SOURCES) $(thread6_SOURCES) \
-	$(thread7_SOURCES)
+	$(thread7_SOURCES) $(thread8_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -184,6 +189,7 @@ thread4_LDADD = -lpthread
 thread5_LDADD = -lpthread
 thread6_LDADD = -lpthread
 thread7_LDADD = -lpthread
+thread8_LDADD = -lpthread
 pthread_SOURCES = pthread.c
 thread1_SOURCES = thread1.c
 thread2_SOURCES = thread2.c
@@ -193,6 +199,7 @@ thread4_SOURCES = thread4.c
 thread5_SOURCES = thread5.c
 thread6_SOURCES = thread6.c
 thread7_SOURCES = thread7.c
+thread8_SOURCES = thread8.c
 all: all-am
 
 .SUFFIXES:
@@ -291,6 +298,9 @@ thread6$(EXEEXT): $(thread6_OBJECTS) $(thread6_DEPENDENCIES) $(EXTRA_thread6_DEP
 thread7$(EXEEXT): $(thread7_OBJECTS) $(thread7_DEPENDENCIES) $(EXTRA_thread7_DEPENDENCIES) 
 	@rm -f thread7$(EXEEXT)
 	$(LINK) $(thread7_OBJECTS) $(thread7_LDADD) $(LIBS)
+thread8$(EXEEXT): $(thread8_OBJECTS) $(thread8_DEPENDENCIES) $(EXTRA_thread8_DEPENDENCIES) 
+	@rm -f thread8$(EXEEXT)
+	$(LINK) $(thread8_OBJECTS) $(thread8_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -307,6 +317,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/thread5.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/thread6.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/thread7.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/thread8.Po@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(COMPILE) -MT $@ -MD -MP -MF $(DEPDIR)/$*.Tpo -c -o $@ $<
